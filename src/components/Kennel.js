@@ -8,11 +8,13 @@ import "./animal/Animal.css"
 import { LocationList } from "./location/LocationList.js"
 import { LocationProvider } from "./location/LocationProvider.js"
 import "./location/Location.css"
-import { Customer } from "./customer/Customer.js"
+// import { Customer } from "./customer/Customer.js"
 import { CustomerList } from "./customer/CustomerList.js"
 import { CustomerProvider } from "./customer/CustomerProvider.js"
 import "./customer/Customer.css"
-import { Employee } from "./employee/Employee.js"
+// import { Employee } from "./employee/Employee.js"
+import { EmployeeList } from "./employee/EmployeeList.js"
+import { EmployeeProvider } from "./employee/EmployeeProvider.js"
 import "./employee/Employee.css"
 
 export const Kennel = () => (
@@ -58,10 +60,14 @@ export const Kennel = () => (
         </article> */}
 
         <h2>Employees</h2>
-        <article className="employees">
+        <EmployeeProvider>
+            <EmployeeList />
+        </EmployeeProvider>
+
+        {/* <article className="employees">
             <Employee />
             <Employee />
             <Employee />
-        </article>
+        </article> */}
     </>
 )
