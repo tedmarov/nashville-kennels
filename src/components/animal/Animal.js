@@ -1,9 +1,9 @@
 import React from "react"
 import "./Animal.css"
 
-export const Animal = () => (
+export const Animal = ({ animal }) => (
     <section className="animal">
-        <h3 className="animal__name">Buttered Oodles</h3>
-        <div className="animal__breed">Breed: Poodle</div>
+        <h3 className="animal__name">{animal.name}</h3>
+        <address className="animal__breed">Breed: {animal.breed}</address>
     </section>
 )
