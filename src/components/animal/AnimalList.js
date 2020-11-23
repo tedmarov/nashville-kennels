@@ -29,7 +29,7 @@ export const AnimalList = () => {
     return (
         <div className="animals">
         {
-            animals.map(loc => <Animal key={loc.id} animal={loc} />)
+            animals.map(ani => <Animal key={ani.id} animal={ani} />)
         }
         </div>
     )
