@@ -5,5 +5,7 @@ export const Animal = ({ animal }) => (
     <section className="animal">
         <h3 className="animal__name">{animal.name}</h3>
         <address className="animal__breed">Breed: {animal.breed}</address>
+        <address className="animal__customer">Customer: {animal.customerId}</address>
+        <address className="animal__location">Location: {animal.locationId}</address>
     </section>
 )
