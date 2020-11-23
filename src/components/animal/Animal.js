@@ -3,7 +3,7 @@ import "./Animal.css"
 
 export const Animal = () => (
     <section className="animal">
-        <h3 className="animal__name">Doodles Oodles</h3>
+        <h3 className="animal__name">Buttered Oodles</h3>
         <div className="animal__breed">Breed: Poodle</div>
     </section>
 )
