@@ -9,6 +9,8 @@ import { LocationList } from "./location/LocationList.js"
 import { LocationProvider } from "./location/LocationProvider.js"
 import "./location/Location.css"
 import { Customer } from "./customer/Customer.js"
+import { CustomerList } from "./customer/CustomerList.js"
+import { CustomerProvider } from "./customer/CustomerProvider.js"
 import "./customer/Customer.css"
 import { Employee } from "./employee/Employee.js"
 import "./employee/Employee.css"
@@ -43,12 +45,17 @@ export const Kennel = () => (
 
 
         <h2>Customers</h2>
-        <article className="customers">
+        <CustomerProvider>
+            <CustomerList />
+        </CustomerProvider>
+
+
+        {/* <article className="customers">
             <Customer />
             <Customer />
             <Customer />
             <Customer />    
-        </article>
+        </article> */}
 
         <h2>Employees</h2>
         <article className="employees">
