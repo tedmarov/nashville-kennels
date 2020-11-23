@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react"
 import { LocationContext } from "./LocationProvider"
 import { Location } from "./Location"
-import "./Locations.css"
+import "./Location.css"
 
 export const LocationList = () => {
     // This state changes when `getLocations()` is invoked below
