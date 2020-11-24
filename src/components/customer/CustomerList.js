@@ -19,10 +19,10 @@ export const CustomerList = () => {
     /*
         This is responding to the customer state changed.
     */
-    useEffect(() => {
-        console.log("CustomerList: Customer state changed")
-        console.log(customers)
-    }, [customers])
+    // useEffect(() => {
+    //     console.log("CustomerList: Customer state changed")
+    //     console.log(customers)
+    // }, [customers])
 
     return (
         <div className="customers">
