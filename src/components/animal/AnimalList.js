@@ -1,10 +1,14 @@
 import React, { useContext, useEffect } from "react"
+import { LocationContext } from "../location/LocationProvider"
+import { CustomerContext } from "../customer/CustomerProvider"
 import { AnimalContext } from "./AnimalProvider"
 import { Animal } from "./Animal"
 import "./Animal.css"
 
 export const AnimalList = () => {
     // This state changes when `getAnimals()` is invoked below
+    const { locations, getLocations } = useContext(LocationContext)
+    const { customers, getCustomers } = useContext(CustomerContext)
     const { animals, getAnimals } = useContext(AnimalContext)
 
     /*
@@ -12,25 +16,36 @@ export const AnimalList = () => {
         "mounted" to the DOM. React renders blank HTML first,
         then gets the data, then re-renders.
     */
+
     useEffect(() => {
         console.log("AnimalList: Initial render before data")
-        getAnimals()
+        getLocations()
+            .then(getCustomers)
+            .then(getAnimals)
     }, [])
 
     /*
         This effect is solely for learning purposes. The effect
         it is responding to is that the animal state changed.
     */
-    useEffect(() => {
-        console.log("AnimalList: Animal state changed")
-        console.log(animals)
-    }, [animals])
+    // useEffect(() => {
+    //     console.log("AnimalList: Animal state changed")
+    //     console.log(animals)
+    // }, [animals])
 
     return (
         <div className="animals">
-        {
-            animals.map(ani => <Animal key={ani.id} animal={ani} />)
-        }
+            {/* <h1>Animal Header</h1> */}
+            {
+                animals.map(animal => {
+                    const owner = customers.find(c => c.id === animal.customerId)
+                    const clinic = locations.find(l => l.id === animal.locationId)
+
+                    return <Animal key={animal.id}
+                        location={clinic}
+                        customer={owner}
+                        animal={animal} />
+                })}
         </div>
     )
 }
