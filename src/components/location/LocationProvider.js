@@ -7,11 +7,13 @@ import React, { useState, useEffect } from "react"
 export const LocationContext = React.createContext()
 
 /*
- This component establishes what data can be used.
- */
+    This component establishes what data can be used.
+*/
+
 export const LocationProvider = (props) => {
     const [locations, setLocations] = useState([])
-    // useState returns [initial value of state variable, a function to set the value of the state variable]
+    // useState returns [initial value of state variable, 
+    // a function to set the value of the state variable]
 
     const getLocations = () => {
         return fetch("http://localhost:8088/locations")
