@@ -38,7 +38,7 @@ export const EmployeeForm = (props) => {
         const locationId = parseInt(location.current.value)
         const animalId = parseInt(animal.current.value)
 
-        if (locationId === 0) {
+        if (locationId === 0 || animalId === 0) {
             window.alert("Please select a location")
         } else {
             addEmployee({
@@ -74,7 +74,7 @@ export const EmployeeForm = (props) => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="location">Caretaker for: </label>
+                    <label htmlFor="caretaker">Caretaker for: </label>
                     <select defaultValue="" name="animal" ref={animal} id="employeeAnimal" className="form-control" >
                         <option value="0">Select an animal</option>
                         {animals.map(e => (
