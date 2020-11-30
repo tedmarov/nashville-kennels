@@ -8,6 +8,7 @@ import { LocationList } from "./location/LocationList"
 import { AnimalList } from "./animal/AnimalList"
 import { CustomerList } from "./customer/CustomerList"
 import { EmployeeList } from "./employee/EmployeeList"
+import { EmployeeForm } from "./employee/EmployeeForm"
 
 export const ApplicationViews = (props) => {
     return (
@@ -37,12 +38,18 @@ export const ApplicationViews = (props) => {
             </CustomerProvider>
 
             <EmployeeProvider>
-                <LocationProvider>
-                    <Route exact path="/employees" render={
-                        props => <EmployeeList {...props} />
-                    } />
-                </LocationProvider>
-            </EmployeeProvider>
+                <AnimalProvider>
+                    <LocationProvider>
+                        <Route exact path="/employees" render={
+                            props => <EmployeeList {...props} />
+                        } />
+
+                        <Route exact path="/employees/create" render={
+                            props => <EmployeeForm {...props} />
+                        } />
+                    </LocationProvider>
+                </AnimalProvider>
+            </EmployeeProvider >
 
         </>
     )

@@ -7,9 +7,9 @@ import React, { useState, useEffect } from "react"
 
 export const EmployeeContext = React.createContext()
 
-    /*
-        Establishes what data can be used.
-    */
+/*
+    Establishes what data can be used.
+*/
 export const EmployeeProvider = (props) => {
     const [employees, setEmployees] = useState([])
 
@@ -29,7 +29,7 @@ export const EmployeeProvider = (props) => {
         })
             .then(getEmployees)
     }
-    
+
     /*
         Returns a context provider which has the
         'employees' state, the `addEmployee` function, 
