@@ -10,16 +10,22 @@ import { CustomerList } from "./customer/CustomerList"
 import { EmployeeList } from "./employee/EmployeeList"
 import { EmployeeForm } from "./employee/EmployeeForm"
 import { AnimalForm } from "./animal/AnimalForm"
+import { EmployeeDetail } from "./employee/EmployeeDetail"
+import { LocationDetail } from "./location/LocationDetail"
 
 export const ApplicationViews = (props) => {
     return (
         <>
 
             <LocationProvider>
-                {/* Render the location list when http://localhost:3000/ */}
-                <Route exact path="/">
-                    <LocationList />
-                </Route>
+                <EmployeeProvider>
+                    <AnimalProvider>
+                        {/* Render the location list when http://localhost:3000/ */}
+                        <Route exact path="/">
+                            <LocationList />
+                        </Route>
+                    </AnimalProvider>
+                </EmployeeProvider>
             </LocationProvider>
 
             <AnimalProvider>
@@ -31,6 +37,10 @@ export const ApplicationViews = (props) => {
 
                         <Route exact path="/animals/create" render={
                             props => <AnimalForm {...props} />
+                        } />
+
+                        <Route path="/locations/:locationId(\d+)" render={
+                            props => <LocationDetail {...props} />
                         } />
                     </CustomerProvider>
                 </LocationProvider>
@@ -52,13 +62,18 @@ export const ApplicationViews = (props) => {
                         <Route exact path="/employees/create" render={
                             props => <EmployeeForm {...props} />
                         } />
+
+                        {/* New route for showing employee details */}
+                        <Route path="/employees/:employeeId(\d+)" render={
+                            props => <EmployeeDetail {...props} />
+                        } />
                     </LocationProvider>
                 </AnimalProvider>
             </EmployeeProvider >
-
         </>
     )
 }
+
 
             // <AnimalProvider>
             //     {/* Render the animal list when http://localhost:3000/animals */}

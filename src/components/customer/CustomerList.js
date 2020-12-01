@@ -26,6 +26,7 @@ export const CustomerList = () => {
 
     return (
         <div className="customers">
+            <h2>Customers</h2>
             {
                 customers.map(cust => <Customer key={cust.id} customer={cust} />)
             }
