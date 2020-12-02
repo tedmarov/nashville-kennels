@@ -5,7 +5,7 @@ import "./Employee.css"
 
 export const EmployeeList = (props) => {
     // This state changes when `getEmployees()` is invoked below
-    const { employees, getEmployees } = useContext(EmployeeContext)
+    const { employees, getEmployees, removeEmployee } = useContext(EmployeeContext)
 
     /*
     Component was "mounted" to the DOM. Needs to render blank
@@ -21,24 +21,34 @@ export const EmployeeList = (props) => {
     */
 
     return (
-        <div className="employees">
-            <h1>Employees</h1>
+        <>
+            <h2>Employees</h2>
             <button onClick={() => props.history.push("/employees/create")}>
                 Hire Button
             </button>
-            <article className="employeeList">
+            <div className="employees">
                 {
                     employees.map(employee => {
-                        return <Link key={employee.id} to={`/employees/${employee.id}`}>
-                            <h3>{employee.name}</h3>
-                        </Link>
-                    })
-                }
-            </article>
-        </div>
+                        return (<div className="employeeCard">
+                            < Link key={employee.id} to={`/employees/${employee.id}`}>
+                                <h3>{employee.name}</h3>
+                            </Link>
+                            <button className="btn--release"
+                                onClick={() => {
+                                    removeEmployee(employee.id)
+                                        .then(() => {
+                                            props.history.push("/employees")
+                                        })
+                                }}>Remove Employee</button>
+                        </div>
+                        )
+                    })}
+            </div>
+        </>
     )
-
 }
+
+
 // import { LocationContext } from "../location/LocationProvider"
 // import { AnimalContext } from "../animal/AnimalProvider"
 // import { Employee } from "./Employee"
