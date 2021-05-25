@@ -67,8 +67,6 @@ export const Login = props => {
                         </button>
                     </fieldset>
                 </form>
-            </section>
-            <section className="link--register">
                 <Link to="/register">Not a member yet?</Link>
             </section>
         </main>

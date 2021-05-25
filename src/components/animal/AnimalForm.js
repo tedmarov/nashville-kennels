@@ -86,7 +86,7 @@ export const AnimalForm = (props) => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="name">Animal name: </label>
-                    <input type="text" name="name" required autoFocus className="form-control"
+                    <input type="text" required autoFocus className="form-control"
                         proptype="varchar"
                         placeholder="Animal name"
                         defaultValue={animal.name}

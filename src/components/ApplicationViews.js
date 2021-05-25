@@ -38,24 +38,22 @@ export const ApplicationViews = (props) => {
                 <LocationProvider>
                     <CustomerProvider>
                         <Route exact path="/animals" render={
-                            props => <>
-                                <AnimalSearch />
-                                <AnimalList {...props} />
-                            </>
+                            props => {
+                                return <>
+                                    <AnimalSearch />
+                                    <AnimalList {...props} />
+                                </>
+                            }
                         } />
-
+                        <Route exact path="/animals/create" render={
+                            props => <AnimalForm {...props} />
+                        } />
                         <Route path="/animals/:animalId(\d+)" render={
                             props => <AnimalDetail {...props} />
                         } />
                         <Route path="/animals/edit/:animalId(\d+)" render={
                             props => <AnimalForm {...props} />
                         } />
-
-                        <AnimalProvider>
-                            <Route path="/animals/:animalId(\d+)" render={
-                                props => <AnimalDetail {...props} />
-                            } />
-                        </AnimalProvider>
                     </CustomerProvider>
                 </LocationProvider>
             </AnimalProvider>
