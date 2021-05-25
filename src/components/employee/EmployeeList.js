@@ -33,7 +33,7 @@ export const EmployeeList = (props) => {
                             < Link key={employee.id} to={`/employees/${employee.id}`}>
                                 <h3>{employee.name}</h3>
                             </Link>
-                            <button className="btn--release"
+                            <button className="btn--remove"
                                 onClick={() => {
                                     removeEmployee(employee.id)
                                         .then(() => {
